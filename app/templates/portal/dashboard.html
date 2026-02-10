@@ -1,0 +1,93 @@
+{% extends 'portal/base.html' %}
+{% block title %}Dashboard · University Portal{% endblock %}
+{% block content %}
+<div class="h1">Dashboard</div>
+<div class="grid">
+    <div class="col-6">
+        <div class="card">
+            <div class="h1">Announcements</div>
+            {% if announcements %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>When</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for a in announcements|slice:':6' %}
+                    <tr>
+                        <td>
+                            {% if a.is_pinned %}<span class="badge">Pinned</span> {% endif %}
+                            {{ a.title }}
+                        </td>
+                        <td>{{ a.publish_at|date:'Y-m-d H:i' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="actions"><a href="{% url 'portal:announcements' %}">View all</a></div>
+            {% else %}
+            <p class="h2">No announcements.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="h1">My Term</div>
+            {% if active_term %}
+            <p><span class="badge">{{ active_term.name }}</span></p>
+            {% else %}
+            <p class="h2">No active term configured yet.</p>
+            {% endif %}
+
+            {% if nav.is_student %}
+            <div class="h1" style="margin-top:16px">My Courses</div>
+            {% if my_sections %}
+            <ul>
+                {% for s in my_sections %}
+                <li>{{ s.course.code }} {{ s.course.title }} ({{ s.section_code }})</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="h2">No enrollments yet.</p>
+            {% endif %}
+            {% endif %}
+
+            {% if nav.is_faculty %}
+            <div class="h1" style="margin-top:16px">Teaching</div>
+            {% if my_teaching %}
+            <ul>
+                {% for s in my_teaching %}
+                <li>
+                    {{ s.course.code }} {{ s.course.title }} ({{ s.section_code }})
+                    · <a href="{% url 'portal:faculty_grades' s.id %}">Gradebook</a>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="h2">No assigned sections yet.</p>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="h1">Support</div>
+            {% if open_tickets %}
+            <ul>
+                {% for t in open_tickets|slice:':5' %}
+                <li><a href="{% url 'portal:support_detail' t.id %}">TKT-{{ t.id }}</a> — {{ t.subject }} ({{
+                    t.get_status_display }})</li>
+                {% endfor %}
+            </ul>
+            <div class="actions"><a href="{% url 'portal:support' %}">View all</a></div>
+            {% else %}
+            <p class="h2">No open tickets.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

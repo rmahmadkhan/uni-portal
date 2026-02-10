@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="860" viewBox="0 0 420 860">
+  <defs>
+    <style>
+      .bg{fill:#0b1220;}
+      .phone{fill:#0a0f1d;stroke:#334155;stroke-width:3;}
+      .bar{fill:#101b33;stroke:#2b3a66;stroke-width:2;}
+      .card{fill:#0f172a;stroke:#334155;stroke-width:2;}
+      .muted{fill:#94a3b8;font-family:Inter,system-ui,Arial;font-size:13px;}
+      .title{fill:#e2e8f0;font-family:Inter,system-ui,Arial;font-size:18px;font-weight:800;}
+      .btn{fill:#2563eb;}
+      .btnText{fill:#ffffff;font-family:Inter,system-ui,Arial;font-size:14px;font-weight:700;}
+      .pill{fill:#1f2a44;}
+      .pillText{fill:#cbd5e1;font-family:Inter,system-ui,Arial;font-size:12px;}
+      .line{stroke:#334155;stroke-width:2;}
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="420" height="860"/>
+  <rect class="phone" x="18" y="18" width="384" height="824" rx="40"/>
+
+  <rect class="bar" x="36" y="56" width="348" height="56" rx="16"/>
+  <text class="title" x="54" y="92">Registration</text>
+  <text class="muted" x="280" y="92">Spring 2026</text>
+
+  <rect class="card" x="36" y="130" width="348" height="110" rx="18"/>
+  <text class="title" x="54" y="168">Search Courses</text>
+  <rect class="pill" x="54" y="182" width="140" height="34" rx="17"/>
+  <text class="pillText" x="72" y="204">Dept: CS</text>
+  <rect class="pill" x="206" y="182" width="130" height="34" rx="17"/>
+  <text class="pillText" x="222" y="204">Level: UG</text>
+
+  <rect class="card" x="36" y="260" width="348" height="200" rx="18"/>
+  <text class="title" x="54" y="298">Results</text>
+  <line class="line" x1="54" y1="312" x2="366" y2="312"/>
+  <text class="muted" x="54" y="340">CS-101 • Intro to Programming</text>
+  <text class="muted" x="54" y="362">Seats: 12 • Tue/Thu 10:00</text>
+  <rect class="btn" x="262" y="328" width="104" height="44" rx="14"/>
+  <text class="btnText" x="292" y="356">Add</text>
+
+  <text class="muted" x="54" y="404">ECON-201 • Microeconomics</text>
+  <text class="muted" x="54" y="426">Seats: Full • Waitlist available</text>
+  <rect class="pill" x="262" y="392" width="104" height="44" rx="14"/>
+  <text class="pillText" x="284" y="420">Waitlist</text>
+
+  <rect class="card" x="36" y="480" width="348" height="220" rx="18"/>
+  <text class="title" x="54" y="518">My Schedule</text>
+  <line class="line" x1="54" y1="532" x2="366" y2="532"/>
+  <text class="muted" x="54" y="562">• CS-101 (Lec) Tue/Thu 10:00</text>
+  <text class="muted" x="54" y="592">• MATH-110 (Tut) Wed 14:00</text>
+  <rect class="btn" x="54" y="624" width="312" height="52" rx="16"/>
+  <text class="btnText" x="142" y="657">Submit Changes</text>
+
+  <rect class="bar" x="36" y="720" width="348" height="92" rx="22"/>
+  <text class="muted" x="62" y="772">Home</text>
+  <text class="muted" x="162" y="772">Register</text>
+  <text class="muted" x="272" y="772">Inbox</text>
+  <text class="muted" x="332" y="772">More</text>
+
+  <text class="muted" x="18" y="856">Wireframe (Mobile) — Registration</text>
+</svg>

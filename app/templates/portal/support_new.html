@@ -1,0 +1,23 @@
+{% extends 'portal/base.html' %}
+{% block title %}New Ticket · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">New Support Ticket</div>
+    <form method="post">
+        {% csrf_token %}
+        <label>Category *</label>
+        <input name="category" placeholder="e.g., Registration, Finance, IT" />
+
+        <label>Subject *</label>
+        <input name="subject" placeholder="Short summary" />
+
+        <label>Description *</label>
+        <textarea name="description" rows="6" placeholder="Describe the issue"></textarea>
+
+        <div class="actions" style="margin-top:12px">
+            <button type="submit">Create</button>
+            <a href="{% url 'portal:support' %}">Back</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

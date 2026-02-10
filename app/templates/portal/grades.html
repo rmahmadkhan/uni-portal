@@ -1,0 +1,29 @@
+{% extends 'portal/base.html' %}
+{% block title %}Grades · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">Grades</div>
+    {% if grades %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Term</th>
+                <th>Course</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for g in grades %}
+            <tr>
+                <td>{{ g.section.term.name }}</td>
+                <td>{{ g.section.course.code }} {{ g.section.course.title }}</td>
+                <td><span class="badge">{{ g.value|default:'—' }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="h2">No released grades yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

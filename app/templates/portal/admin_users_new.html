@@ -1,0 +1,54 @@
+{% extends "portal/base.html" %}
+
+{% block title %}Create User{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="h1">Create User</div>
+    <div class="h2">IT/Admin only</div>
+
+    <form method="post">
+        {% csrf_token %}
+
+        {% if form.non_field_errors %}
+        <div class="messages">
+            <div class="message error">{{ form.non_field_errors }}</div>
+        </div>
+        {% endif %}
+
+        <label for="id_username">Username</label>
+        {{ form.username }}
+        {% if form.username.errors %}<div class="message error">{{ form.username.errors }}</div>{% endif %}
+
+        <label for="id_email">Email (optional)</label>
+        {{ form.email }}
+        {% if form.email.errors %}<div class="message error">{{ form.email.errors }}</div>{% endif %}
+
+        <label for="id_password1">Password</label>
+        {{ form.password1 }}
+        {% if form.password1.errors %}<div class="message error">{{ form.password1.errors }}</div>{% endif %}
+
+        <label for="id_password2">Confirm password</label>
+        {{ form.password2 }}
+        {% if form.password2.errors %}<div class="message error">{{ form.password2.errors }}</div>{% endif %}
+
+        <div style="margin-top: 12px">
+            <div class="h2" style="margin-bottom: 6px">Roles</div>
+            {{ form.roles }}
+            {% if form.roles.errors %}<div class="message error">{{ form.roles.errors }}</div>{% endif %}
+            {% if form.roles.help_text %}<div class="badge">{{ form.roles.help_text }}</div>{% endif %}
+        </div>
+
+        <div style="margin-top: 12px">
+            <label style="display:flex; gap:10px; align-items:center; margin: 0">
+                {{ form.is_staff }} <span>Staff (Django admin access)</span>
+            </label>
+            {% if form.is_staff.errors %}<div class="message error">{{ form.is_staff.errors }}</div>{% endif %}
+        </div>
+
+        <div class="actions" style="margin-top: 14px">
+            <button type="submit">Create user</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

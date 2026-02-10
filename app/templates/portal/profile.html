@@ -1,0 +1,33 @@
+{% extends 'portal/base.html' %}
+{% block title %}Profile · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">Profile</div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ user.get_full_name|default:'—' }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ user.email|default:'—' }}</td>
+            </tr>
+            <tr>
+                <th>Roles</th>
+                <td>
+                    {% for g in user.groups.all %}
+                    <span class="badge">{{ g.name }}</span>
+                    {% empty %}
+                    <span class="badge">None</span>
+                    {% endfor %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}

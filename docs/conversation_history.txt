@@ -1,0 +1,638 @@
+Conversation & Action History (Text)
+Project: Vibe Coding Project – University Portal (LUMS-like)
+Date: 2026-02-05
+Workspace: /Users/ahmad/lums/spring2026/Software Dev/vibe_coding_project
+
+IMPORTANT NOTE ON "THOUGHTS"
+- I cannot record or reveal private chain-of-thought.
+- This log includes: (1) full chat transcript, (2) tool/actions taken, (3) non-sensitive reasoning summary and decision log.
+
+=== Full Conversation Transcript (Chronological) ===
+(Seq 1) [User]
+You are an autonomous software engineering agent who is building a website using complete Software Development Life Cycle. We will go step by step:
+a. Requirements
+b. Design
+c. Code
+d. Test
+e. Improve
+f. Deploy
+
+TASK: Act as an autonomous agent and prompt the LLM yourself for first step i.e. Requirements. You need to generate a IEEE format SRS document.
+Reference website is: http://portal.lums.edu.pk
+
+The delivered application shall be mobile enabled as well, that is it shall be able to run on Android and/or iOS.
+
+INSTRUCTIONS: Save whole conversation, thoughts and the actions you took in a separate file. All the history should be available at the end with a SRS document. Keep the conversation going until a IEEE format SRS document is finalized for requirements.
+
+OUTPUT: Three files in total. One text and one json file for conversation history. One file for IEEE format SRS document.
+
+(Seq 2) [Assistant]
+I’m going to (1) inspect the workspace and reference portal at a high level, then (2) draft an IEEE-style SRS for a LUMS-like portal with mobile support, and (3) write the three requested files (SRS + text/JSON history logs).
+
+(Seq 3) [Assistant]
+Next I’ll inspect what’s already in docs/, then I’ll generate the IEEE SRS and the two conversation-history files.
+
+(Seq 4) [Assistant]
+Created the three deliverables:
+- SRS draft (IEEE-830 style): [docs/SRS_University_Portal_IEEE830.md](docs/SRS_University_Portal_IEEE830.md)
+- Conversation history (text): [docs/conversation_history.txt](docs/conversation_history.txt)
+- Conversation history (json): [docs/conversation_history.json](docs/conversation_history.json)
+
+To finalize the SRS to v1.0, confirm these requirement decisions (you can answer inline with 1–2 words each):
+- Mobile: “Responsive+PWA” only, or “Must publish native apps” too?
+- MVP integrations: SIS only, or SIS + Finance + LMS?
+- MVP roles: Students+Faculty only, or include Staff/Admin workflows?
+- Transcripts: instant download allowed, or request/approval required?
+- Security/compliance targets: any specific policy, and required audit-log retention period?
+
+(Seq 5) [User]
+Mobile: Only responsive website
+MVP integrations: Include whatever you see right
+MVP roles: include all
+Transcripts: both official and non-official. official require request/approval only.
+Security: follow standards
+
+(Seq 6) [Assistant]
+I’ve read the current SRS; next I’ll update it to v1.0 reflecting your confirmed choices (responsive-only mobile, all roles, broader integrations, transcript approval workflow, security standards).
+
+(Seq 7) [Assistant]
+SRS is now finalized to v1.0 with your decisions applied (responsive-only mobile, all roles, SIS+Finance+LMS integrations, unofficial vs official transcript workflow with approval, standards-based security).
+
+If you confirm this requirements baseline, I’ll proceed to SDLC step (b) Design (architecture + UI sitemap + data model + API contracts).
+
+(Seq 8) [User]
+overall good. but we are not saving our chat's history and your thoughts there properly. fix that
+
+(Seq 9) [Assistant]
+I’m going to load the current history files and SRS, then rewrite the history logs to include the full chat transcript plus a clear “thoughts”/reasoning summary (without private chain-of-thought), and embed a snapshot of the finalized SRS at the end.
+
+(Seq 10) [User]
+Let's process to next step of SDLC: Design. Write a new document with all details. Generate images for ui as well and include in the file.
+
+(Seq 11) [Assistant]
+I’m going to create a new Design document plus a set of SVG UI wireframe images, then I’ll update both history logs to include this Design step.
+
+=== Tool / Action Log (Chronological) ===
+Tool entries record concrete actions taken in the VS Code workspace.
+
+(A1) list_dir
+Path: /Users/ahmad/lums/spring2026/Software Dev/vibe_coding_project
+Result: docs/
+
+(A2) fetch_webpage
+URL: http://portal.lums.edu.pk
+Query: portal lums login student faculty services features
+Result: Failed to extract meaningful content from the web page
+
+(A3) list_dir
+Path: /Users/ahmad/lums/spring2026/Software Dev/vibe_coding_project/docs
+Result: Folder is empty
+
+(A4) create_file
+File: [docs/conversation_history.txt](docs/conversation_history.txt)
+Result: Created/updated
+
+(A5) create_file
+File: [docs/conversation_history.json](docs/conversation_history.json)
+Result: Created/updated
+
+(A6) create_file
+File: [docs/SRS_University_Portal_IEEE830.md](docs/SRS_University_Portal_IEEE830.md)
+Result: Created (SRS v0.9 draft)
+
+(A7) apply_patch
+File: [docs/conversation_history.txt](docs/conversation_history.txt)
+Result: Appended file creation actions
+
+(A8) apply_patch
+File: [docs/conversation_history.json](docs/conversation_history.json)
+Result: Added file creation tool events
+
+(A9) read_file
+File: [docs/SRS_University_Portal_IEEE830.md](docs/SRS_University_Portal_IEEE830.md)
+Result: Loaded for edits
+
+(A10) apply_patch
+File: [docs/SRS_University_Portal_IEEE830.md](docs/SRS_University_Portal_IEEE830.md)
+Result: Updated to v1.0 (responsive-only mobile, all roles, integrations, transcript policy, standards-based security)
+
+(A11) grep_search
+File: [docs/SRS_University_Portal_IEEE830.md](docs/SRS_University_Portal_IEEE830.md)
+Result: Detected duplicated FR-STU identifiers
+
+(A12) apply_patch
+File: [docs/SRS_University_Portal_IEEE830.md](docs/SRS_University_Portal_IEEE830.md)
+Result: Renumbered FR-STU holds/fee requirements
+
+(A13) apply_patch
+File: [docs/conversation_history.txt](docs/conversation_history.txt)
+Result: Appended decision + SRS edit actions
+
+(A14) read_file
+File: [docs/conversation_history.json](docs/conversation_history.json)
+Result: Loaded for edits
+
+(A15) apply_patch
+File: [docs/conversation_history.json](docs/conversation_history.json)
+Result: Appended decisions and SRS edit actions; updated reasoning summary
+
+(A16) grep_search
+File: [docs/SRS_University_Portal_IEEE830.md](docs/SRS_University_Portal_IEEE830.md)
+Result: Confirmed no PWA/native-wrapper requirements remain (except explicit “not required” notes)
+
+(A17) read_file
+Files: [docs/conversation_history.txt](docs/conversation_history.txt), [docs/conversation_history.json](docs/conversation_history.json), [docs/SRS_University_Portal_IEEE830.md](docs/SRS_University_Portal_IEEE830.md)
+Result: Loaded to fix history completeness
+
+(A18) apply_patch
+File: [docs/conversation_history.txt](docs/conversation_history.txt)
+Result: Rewritten to include full transcript + tool log + SRS snapshot
+
+(A19) apply_patch
+File: [docs/conversation_history.json](docs/conversation_history.json)
+Result: Rewritten to include full transcript + tool log + SRS snapshot
+
+(A20) create_directory
+Dir: [docs/design/images](docs/design/images)
+Result: Created directory
+
+(A21) create_file
+File: [docs/design/images/ui_login_desktop.svg](docs/design/images/ui_login_desktop.svg)
+Result: Created
+
+(A22) create_file
+File: [docs/design/images/ui_dashboard_desktop.svg](docs/design/images/ui_dashboard_desktop.svg)
+Result: Created
+
+(A23) create_file
+File: [docs/design/images/ui_registration_mobile.svg](docs/design/images/ui_registration_mobile.svg)
+Result: Created
+
+(A24) create_file
+File: [docs/design/images/ui_transcript_request_desktop.svg](docs/design/images/ui_transcript_request_desktop.svg)
+Result: Created
+
+(A25) create_file
+File: [docs/design/images/ui_admin_queue_desktop.svg](docs/design/images/ui_admin_queue_desktop.svg)
+Result: Created
+
+(A26) create_file
+File: [docs/Design_University_Portal.md](docs/Design_University_Portal.md)
+Result: Created (Design document v1.0)
+
+=== Non-sensitive Reasoning Summary (High Level) ===
+- Reference portal content could not be extracted automatically; requirements were modeled as a standard university portal and then finalized via your decisions.
+- Mobile enablement is satisfied by a responsive website (runs on Android/iOS browsers).
+- Transcript policy is split into unofficial (instant) vs official (request + approval) with audit trail.
+- Security is expressed via standards targets (OWASP ASVS L2, OWASP Top 10) and least-privilege separation of duties.
+
+=== Decision Log (Final) ===
+- Mobile: responsive website only.
+- Integrations: include SIS + Finance + LMS as available (SIS mandatory).
+- Roles: include all (Student, Faculty, Staff, Registrar Staff, Finance Staff, IT/Admin, Alumni).
+- Transcripts: unofficial download allowed; official requires request/approval.
+- Security: follow standards.
+
+=== Artifacts ===
+- Final SRS: [docs/SRS_University_Portal_IEEE830.md](docs/SRS_University_Portal_IEEE830.md)
+- History (text): [docs/conversation_history.txt](docs/conversation_history.txt)
+- History (json): [docs/conversation_history.json](docs/conversation_history.json)
+- Design doc: [docs/Design_University_Portal.md](docs/Design_University_Portal.md)
+- UI wireframes (SVG): [docs/design/images](docs/design/images)
+
+=== SRS Snapshot (Embedded) ===
+This is a verbatim snapshot of the finalized SRS file as of the last update.
+
+--- BEGIN SRS: [docs/SRS_University_Portal_IEEE830.md](docs/SRS_University_Portal_IEEE830.md) ---
+
+# Software Requirements Specification (SRS)
+## University Portal (LUMS-like) – Responsive Web
+
+**Document ID:** SRS-UP-001  
+**Version:** 1.0 (Finalized Requirements)  
+**Date:** 2026-02-05  
+**Prepared by:** Autonomous SDLC Agent (GitHub Copilot, GPT-5.2)
+
+---
+
+## 1. Introduction
+
+### 1.1 Purpose
+This Software Requirements Specification (SRS) defines the requirements for a University Portal application modeled after common capabilities of a university self-service portal (reference: http://portal.lums.edu.pk). The SRS is intended for stakeholders including product owner, university administration, software engineers, QA engineers, security team, and operations.
+
+### 1.2 Scope
+The system (“University Portal”) provides role-based access to academic and administrative self-service functions for students, faculty, staff, administrators, and alumni. The portal shall be accessible on desktop and mobile browsers and shall be mobile-enabled by providing a responsive website that runs on Android and iOS browsers.
+
+In scope (high level):
+- Authentication and role-based authorization
+- Student self-service: registration, timetable, grades, transcript requests, attendance view (if applicable)
+- Faculty self-service: class rosters, grade submission, announcements
+- Staff self-service: administrative workflows (configurable by office)
+- Notifications and announcements
+- Profile and settings
+- Help/support and issue reporting
+- Integrations: SIS (mandatory), Finance (fee status), LMS (SSO/deep links and data exchange where available)
+
+Out of scope (unless added later):
+- Full Learning Management System (LMS) content delivery and assignment hosting (portal may provide links and limited integration)
+- Payroll/HRMS beyond basic staff profile
+- Admissions workflow end-to-end (optional)
+
+### 1.3 Definitions, Acronyms, and Abbreviations
+- **SRS**: Software Requirements Specification
+- **RBAC**: Role-Based Access Control
+- **MFA**: Multi-Factor Authentication
+- **PII**: Personally Identifiable Information
+- **SIS**: Student Information System (source of record)
+- **SSO**: Single Sign-On
+- **FERPA-like**: Generic term for education privacy rules (actual compliance depends on jurisdiction)
+
+### 1.4 References
+- IEEE 830-1998 (recommended structure for SRS documents)
+- Reference portal (availability/content not guaranteed during drafting): http://portal.lums.edu.pk
+
+### 1.5 Overview
+Section 2 describes the product context and user classes. Section 3 lists specific functional and nonfunctional requirements, including interfaces, constraints, and quality attributes.
+
+---
+
+## 2. Overall Description
+
+### 2.1 Product Perspective
+The University Portal is a new web application that may integrate with existing university systems (e.g., SIS, LMS, finance) through APIs. It is intended as a unified front door for academic and administrative self-service.
+
+### 2.2 Product Functions (Summary)
+- Account login via SSO; optional MFA
+- View and update user profile (limited fields)
+- View announcements and notifications
+- Students: course registration/add-drop, timetable, grades, unofficial transcript download, official transcript request/approval, fee invoice/challan view, holds status
+- Faculty: course roster, grading submission, class announcements
+- Staff/Admin: manage announcements, view reports, manage selected workflows
+- Search directory (optional): faculty/staff directory with privacy controls
+- Support: FAQs and ticket submission
+
+### 2.3 User Classes and Characteristics
+- **Student**: views academic record, registers courses, sees fees/holds
+- **Faculty**: manages teaching activities (roster, grading)
+- **Staff (Academic Office)**: supports enrollment, scheduling, announcements
+- **Finance Staff**: manages fee-related status and statements (if integrated)
+- **IT/Admin**: manages roles, permissions, system configuration
+- **Alumni**: limited access to academic documents and verification requests per policy
+
+### 2.4 Operating Environment
+- Web: latest stable versions of Chrome, Safari, Edge, Firefox
+- Mobile: Android (Chrome/WebView), iOS (Safari/WebKit)
+- Server: Linux-based container hosting (cloud/on-prem)
+- Database: relational DB (e.g., PostgreSQL) (implementation choice)
+
+### 2.5 Design and Implementation Constraints
+- Must support secure authentication (SSO integration preferred)
+- Must enforce least-privilege RBAC
+- Must protect PII and academic records
+- Must be mobile-enabled (responsive UI only; no native app or PWA is required for MVP)
+- Accessibility: WCAG 2.1 AA target (or equivalent)
+
+### 2.6 User Documentation
+- Online help center with role-specific guides
+- FAQ and troubleshooting for login/MFA
+- Admin guide for announcements and configuration
+
+### 2.7 Assumptions and Dependencies
+Because the reference portal content could not be extracted automatically during drafting, the following assumptions apply and must be validated:
+- University has an identity provider for SSO (e.g., SAML/OIDC)
+- SIS exposes APIs or database views to obtain enrollment, grades, timetable, holds, and program data
+- Finance system provides fee invoice/statement status via API export
+- LMS provides SSO/deep links and optionally roster/enrollment synchronization
+- Data definitions (courses, sections, grading scheme) are provided by SIS
+
+---
+
+## 3. Specific Requirements
+
+### 3.1 External Interface Requirements
+
+#### 3.1.1 User Interfaces
+- UI-1: The portal shall provide a responsive web UI supporting viewport widths from 320px to 1920px.
+- UI-2: The portal shall provide a consistent navigation structure with role-based menus.
+- UI-3: The portal shall support dark mode (optional, configurable) without loss of readability.
+- UI-4: The portal shall provide touch-friendly controls and layouts on mobile devices (minimum target size and spacing per platform conventions).
+
+#### 3.1.2 Hardware Interfaces
+- None required beyond standard client devices (desktop, laptop, tablet, smartphone).
+
+#### 3.1.3 Software Interfaces
+- SI-1: The portal shall integrate with an Identity Provider using OIDC or SAML 2.0.
+- SI-2: The portal shall integrate with SIS via REST/GraphQL APIs or batch import.
+- SI-3: The portal shall integrate with Finance system for fee status via API or batch import.
+- SI-4: The portal shall support email notification delivery via SMTP or a transactional email provider.
+- SI-5: The portal shall integrate with LMS via SSO and deep links, and may exchange roster/enrollment data where available.
+
+#### 3.1.4 Communications Interfaces
+- CI-1: All client-server communication shall occur over HTTPS (TLS 1.2+).
+- CI-2: The portal shall support HTTP/2 where available.
+
+### 3.2 Functional Requirements
+
+#### 3.2.1 Authentication and Session
+- FR-AUTH-1: The system shall allow users to authenticate using SSO.
+- FR-AUTH-2: The system shall support optional MFA enforcement by policy.
+- FR-AUTH-3: The system shall automatically log out idle sessions after a configurable timeout.
+- FR-AUTH-4: The system shall prevent concurrent session abuse via configurable session controls.
+
+#### 3.2.2 Authorization and Roles
+- FR-RBAC-1: The system shall implement RBAC with roles at minimum: Student, Faculty, Staff, Registrar Staff, Finance Staff, IT/Admin, Alumni.
+- FR-RBAC-2: The system shall restrict access to academic records to authorized roles only.
+- FR-RBAC-3: The system shall provide an admin interface to assign roles and permissions.
+
+#### 3.2.3 Student Services
+- FR-STU-1: The system shall allow students to view their current program, term, and academic standing.
+- FR-STU-2: The system shall allow students to view course offerings for a selected term.
+- FR-STU-3: The system shall allow students to register for courses subject to eligibility rules (prerequisites, capacity, holds).
+- FR-STU-4: The system shall support add/drop within configured date windows.
+- FR-STU-5: The system shall display a student timetable with conflict detection.
+- FR-STU-6: The system shall display grades per term once released.
+- FR-STU-7: The system shall provide an **unofficial transcript** view and downloadable PDF to the student.
+- FR-STU-8: The system shall provide an **official transcript request** workflow that requires review and approval before issuance.
+- FR-STU-9: The system shall allow the student to track official transcript request status (e.g., Submitted, In Review, Approved, Rejected, Issued).
+- FR-STU-10: The system shall deliver the official transcript as an approved, tamper-evident PDF (e.g., signed and/or with verification code) according to institutional policy.
+- FR-STU-11: The system shall show holds (financial/disciplinary/advising) that affect registration.
+- FR-STU-12: The system shall show fee invoice/statement status and due dates (if integrated).
+
+#### 3.2.3.1 Official Transcript Request and Approval
+- FR-TRN-1: The system shall allow students and alumni (as permitted) to submit an official transcript request.
+- FR-TRN-2: The request form shall capture required metadata (purpose, delivery method, recipient details if applicable, and consent acknowledgement).
+- FR-TRN-3: The system shall route requests to authorized Registrar Staff for review.
+- FR-TRN-4: Registrar Staff shall be able to approve or reject a request with a reason.
+- FR-TRN-5: The system shall enforce policy checks prior to approval (e.g., identity verified, no blocking holds, fees paid where applicable).
+- FR-TRN-6: The system shall generate an audit log entry for request submission, review, approval/rejection, and issuance.
+
+#### 3.2.4 Faculty Services
+- FR-FAC-1: The system shall list courses taught by a faculty member for a selected term.
+- FR-FAC-2: The system shall provide class rosters with student identifiers per policy.
+- FR-FAC-3: The system shall allow faculty to submit grades for enrolled students.
+- FR-FAC-4: The system shall support draft grading and final submission with audit trail.
+- FR-FAC-5: The system shall allow faculty to post course announcements visible to enrolled students.
+
+#### 3.2.5 Announcements and Notifications
+- FR-NOTIF-1: The system shall display global announcements and role-targeted announcements.
+- FR-NOTIF-2: The system shall allow users to view a notification inbox.
+- FR-NOTIF-3: The system shall send email notifications for critical events (e.g., grade release, registration window changes) based on policy.
+- FR-NOTIF-4: The system shall send email notifications for workflow events (e.g., official transcript request status changes) based on user role and policy.
+
+#### 3.2.6 Profile and Preferences
+- FR-PROF-1: The system shall allow users to view their profile information.
+- FR-PROF-2: The system shall allow users to update permitted fields (e.g., phone, address) with validation.
+- FR-PROF-3: The system shall allow users to set communication preferences subject to institutional policy.
+
+#### 3.2.7 Support and Feedback
+- FR-SUP-1: The system shall provide an FAQ/Help section.
+- FR-SUP-2: The system shall allow users to submit a support ticket with category and description.
+- FR-SUP-3: The system shall provide ticket status tracking to the submitter.
+
+#### 3.2.8 Administration
+- FR-ADM-1: The system shall allow admins to manage announcements (create, edit, schedule, expire).
+- FR-ADM-2: The system shall allow admins to configure term calendars (registration windows, grade release windows).
+- FR-ADM-3: The system shall provide audit logs for sensitive actions (role changes, grade submission, transcript export).
+- FR-ADM-4: The system shall provide basic usage analytics dashboards (logins, feature usage) with privacy safeguards.
+- FR-ADM-5: The system shall provide administrative queues for Registrar Staff and Finance Staff to review and process applicable requests.
+
+### 3.3 Performance Requirements
+- PR-1: The system shall support at least 5,000 concurrent active users (configurable target).
+- PR-2: For 95% of requests, the system shall respond within 2 seconds for read-only pages under nominal load.
+- PR-3: Bulk operations (e.g., grade submission upload) shall complete within 30 seconds for typical class sizes (≤300 students).
+
+### 3.4 Logical Database Requirements
+- DB-1: The system shall store user roles, permissions, preferences, and audit logs.
+- DB-2: The system may cache SIS data but shall identify the system-of-record fields.
+- DB-3: Audit logs shall be immutable and retained for a configurable period with a minimum default of 7 years.
+- DB-4: The system shall store transcript request records, status transitions, and approvals as part of the audit trail.
+
+### 3.5 Design Constraints
+- DC-1: The system shall comply with institutional security policies.
+- DC-2: The system shall use encryption at rest for sensitive data where supported.
+- DC-3: The system shall implement secure coding practices aligned with OWASP ASVS (Level 2 target).
+
+### 3.6 Software System Attributes (Quality Requirements)
+
+#### 3.6.1 Security
+- SEC-1: The system shall enforce HTTPS and secure cookies.
+- SEC-2: The system shall implement CSRF protections and input validation.
+- SEC-3: The system shall implement rate limiting and account lockout policies via IdP and/or application.
+- SEC-4: The system shall log security-relevant events (login failures, privilege changes).
+- SEC-5: The system shall be designed and tested to mitigate OWASP Top 10 risks.
+- SEC-6: The system shall implement least-privilege access controls and separation of duties for grade submission and official transcript issuance.
+- SEC-7: Sensitive documents (e.g., official transcripts) shall be protected against unauthorized access and shall not be publicly guessable via URLs.
+
+#### 3.6.2 Reliability and Availability
+- REL-1: The system shall target 99.5% monthly uptime (excluding planned maintenance).
+- REL-2: The system shall provide graceful degradation if upstream SIS/Finance systems are unavailable (read-only cached data where allowed, clear error messages).
+
+#### 3.6.3 Maintainability
+- MAIN-1: The system shall use modular architecture enabling independent feature development.
+- MAIN-2: The system shall provide centralized configuration for term calendars and feature flags.
+
+#### 3.6.4 Portability (Mobile Enablement)
+- PORT-1: The system shall run on Android and iOS via mobile browsers.
+- PORT-2: The system shall be optimized for mobile network conditions (efficient payloads and caching for static assets).
+
+#### 3.6.5 Usability and Accessibility
+- USA-1: The system shall meet WCAG 2.1 AA for key user flows.
+- USA-2: The system shall support keyboard navigation and screen readers.
+
+### 3.7 Other Requirements
+- OR-1: The system shall provide data export for admins (CSV) subject to authorization.
+- OR-2: The system shall display localized date/time formats; multi-language support is optional.
+
+---
+
+## Appendix A: Requirements Decisions (Final)
+1. **Mobile enablement:** Responsive website only (no native apps or PWA required for MVP).
+2. **MVP integrations:** SIS + Finance + LMS integration as available (at minimum SIS is mandatory).
+3. **MVP roles:** Include all roles (Student, Faculty, Staff, Registrar Staff, Finance Staff, IT/Admin, Alumni).
+4. **Transcripts:** Unofficial transcripts are available for direct download; official transcripts require request and approval.
+5. **Security:** Follow standards (OWASP ASVS L2 target, mitigate OWASP Top 10, strong audit trails and least privilege).
+
+## Appendix B: Assumption Validation Checklist
+- Confirm IdP protocol (OIDC vs SAML)
+- Confirm SIS integration method and data contract
+- Confirm finance data sources and refresh frequency
+- Confirm LMS integration method (SSO/deep links and any data exchange)
+- Confirm peak concurrency and performance SLAs
+
+---
+
+## Sign-off (Placeholder)
+- Product Owner: ____________________ Date: ________
+- IT Security: _______________________ Date: ________
+- Registrar/Academic Office: _________ Date: ________
+
+--- END SRS ---
+
+
+=== SDLC Step (b) Design (Completed) ===
+Artifacts created:
+- Design document: [docs/Design_University_Portal.md](docs/Design_University_Portal.md)
+- UI wireframes (SVG):
+	- [docs/design/images/ui_login_desktop.svg](docs/design/images/ui_login_desktop.svg)
+	- [docs/design/images/ui_dashboard_desktop.svg](docs/design/images/ui_dashboard_desktop.svg)
+	- [docs/design/images/ui_registration_mobile.svg](docs/design/images/ui_registration_mobile.svg)
+	- [docs/design/images/ui_transcript_request_desktop.svg](docs/design/images/ui_transcript_request_desktop.svg)
+	- [docs/design/images/ui_admin_queue_desktop.svg](docs/design/images/ui_admin_queue_desktop.svg)
+
+Non-sensitive reasoning summary:
+- Produced an implementation-oriented design (architecture, IA, workflows, data model, security/ops).
+- Wireframes were generated as SVG to keep artifacts versionable and editable.
+
+
+=== SDLC Step (c) Code (In Progress; Baseline Working Portal Implemented) ===
+Implementation notes (Django):
+- Implemented core data models: announcements, term/course/section/enrollment, grades, transcript requests/events, finance invoices, support tickets/messages, audit logs.
+- Implemented views + templates for:
+	- Auth (login/logout), dashboard, profile
+	- Announcements list
+	- Student registration add/drop
+	- Timetable
+	- Student grade view + faculty gradebook per section
+	- Transcripts: unofficial PDF download + official request workflow + registrar queue actions
+	- Finance (student view + staff view)
+	- Support tickets (create + detail + messages)
+- Implemented role scaffolding via Django Groups and a role-aware navigation context processor.
+
+Key code artifacts:
+- Django portal app: app/portal/
+- Models: app/portal/models.py
+- Views: app/portal/views.py
+- URLs: app/portal/urls.py
+- Role helpers: app/portal/roles.py
+- Templates: app/templates/portal/
+- Static CSS: app/static/portal.css
+- Admin registrations: app/portal/admin.py
+
+Database / validation actions performed:
+- Created and applied migrations: portal/migrations/0001_initial.py
+- Ran system checks: `python manage.py check`
+- Added minimal smoke tests and ran: `python manage.py test`
+
+Demo data:
+- Added a demo seeder: app/portal/management/commands/seed_demo.py
+- Ran: `python manage.py seed_demo`
+- Demo users created: student1, faculty1, registrar1, finance1, alumni1, admin1 (password: password123)
+
+Limitations (current MVP state):
+- “Staff” role workflows are not yet implemented beyond shared access patterns.
+- Official transcript PDF is generated as a basic PDF (MVP) and should be upgraded later to signed/tamper-evident output per policy.
+
+=== Maintenance / Bugfix Session (2026-02-10) ===
+
+User-reported issues:
+- Student login landing on a 404.
+- Faculty logout going to admin pages / not logging out.
+- Course pages missing/broken.
+- Layout height looked cut off / not full height.
+
+Fixes implemented:
+- Logout reliability: changed navbar logout to a POST (Django LogoutView requires POST for actual logout) and styled it like a normal nav link.
+- Added a regression test ensuring POST /logout/ clears the session and redirects to portal login.
+- Added course list + course detail pages and navigation.
+- CSS updated so pages fill the viewport height and footer sits at bottom on short pages.
+
+Run/setup improvements:
+- Added requirements.txt and improved README.md run instructions.
+- Added run.sh and a Makefile so the app can be started with ./run.sh or make run.
+- Added a management command create_portal_user to create users and assign role groups.
+
+Notes on errors encountered:
+- Running python manage.py migrate with system Python produced: ModuleNotFoundError: No module named 'django'.
+- Fix: activate .venv (source .venv/bin/activate) or run with .venv/bin/python.
+
+=== SDLC Step (d) Test (2026-02-10) ===
+
+Goal:
+- Test the portal “by standards” using automated Django tests + framework checks.
+
+Automated test coverage expanded (Django TestCase):
+- Courses: list + course detail rendering; enrolled badge shows correctly.
+- Registration: add/drop workflow; capacity handling (enrolled vs waitlisted).
+- Transcripts: student creates request; registrar approves/issues; PDF download gating (404 before issuance).
+- Support: ticket creation + messaging; unauthorized access returns 404.
+- Finance: student invoice view + finance staff view.
+
+Standards-oriented checks executed:
+- `python manage.py check` → OK.
+- `python manage.py check --deploy` → expected warnings for dev configuration (DEBUG, secure cookies, HSTS/HTTPS redirect, insecure SECRET_KEY).
+- `python manage.py test` → PASS (13 tests).
+
+Defect found and fixed:
+- Registration add/drop logic could incorrectly waitlist the first student when capacity was 1.
+- Fixed by computing seat availability excluding the current student before setting enrollment status.
+
+Test report:
+- Created: [docs/Test_University_Portal.md](docs/Test_University_Portal.md)
+
+=== SDLC Step (e) Improve (2026-02-10) ===
+
+Goal:
+- Add production-grade Django settings and reduce `check --deploy` warnings.
+
+Improvements implemented:
+- Added production settings module: `app/university_portal/settings_prod.py`.
+	- Enforces `DEBUG=False`.
+	- Requires `DJANGO_SECRET_KEY` and `DJANGO_ALLOWED_HOSTS`.
+	- Enables secure defaults: HTTPS redirect, HSTS, secure session/CSRF cookies.
+	- Sets `STATIC_ROOT` for `collectstatic`.
+- Updated default settings: `app/university_portal/settings.py`.
+	- Now supports env-driven config (`DJANGO_DEBUG`, `DJANGO_SECRET_KEY`, `DJANGO_ALLOWED_HOSTS`, `DJANGO_CSRF_TRUSTED_ORIGINS`).
+	- Adds safe baseline hardening (nosniff, frame options, referrer policy).
+- Added `.env.example` and updated `README.md` with production settings usage.
+- Created SDLC Improve doc: [docs/Improve_University_Portal.md](docs/Improve_University_Portal.md)
+
+Checks executed:
+- `DJANGO_SETTINGS_MODULE=university_portal.settings_prod python manage.py check --deploy` → OK (no issues).
+
+Additional production improvements:
+- Added `DATABASE_URL` support in `settings_prod.py` (Postgres recommended) using `dj-database-url`.
+- Added `psycopg[binary]` for Postgres connectivity.
+- Added WhiteNoise static serving + hashed static storage for simple deployments.
+- Added `gunicorn` as a production WSGI server option.
+- Updated `requirements.txt`, `.env.example`, and `README.md` with Postgres + collectstatic + gunicorn instructions.
+
+Verification (database + components):
+- Verified dependencies import: dj-database-url, psycopg, whitenoise, gunicorn.
+- Fixed `settings_prod.py` so Postgres-only options (SSL/sslmode, connect_timeout) are not applied to SQLite URLs.
+- Verified `DATABASE_URL` wiring by running `migrate` with `DATABASE_URL=sqlite:///.../db_prod_verify.sqlite3` under production settings (success).
+- Verified static pipeline: `collectstatic --noinput` under production settings (success).
+- Re-ran tests: `python manage.py test` (13 tests OK).
+
+Docker/Postgres smoke-run setup:
+- Added `Dockerfile`, `docker-compose.yml`, and `.dockerignore` to run the portal with a Postgres container.
+- Updated README.md with `docker compose up --build` instructions.
+- Note: Docker was not available in the current execution environment (`command -v docker` failed), so the containerized smoke run could not be executed here. The configuration is included for you to run locally on a machine with Docker Desktop.
+
+All-checks verification runner:
+- Added `scripts/verify_prod.sh` and `make verify-prod` to run production verification end-to-end: `check --deploy`, `migrate --noinput`, `collectstatic --noinput`, and `test`.
+- Verified locally (non-Docker): `make verify-prod` succeeded (deploy check: no issues; migrate: OK; collectstatic: OK; tests: 13 passed).
+- Note: deploy checks run with HTTPS settings enabled; tests run with SSL redirect disabled to avoid HTTP→HTTPS 301 redirects from Django’s test client.
+
+=== SDLC Step (f) Deploy (2026-02-10) ===
+
+Goal:
+- Add deployment-ready packaging and operational hooks so the portal can be hosted as a production-like app with a real URL.
+
+Deploy-readiness improvements implemented:
+- Added a health endpoint: GET /healthz/ returns 200 and performs a lightweight DB round-trip (SELECT 1) for readiness checks.
+- Added a container entrypoint script (entrypoint.sh) that runs `migrate --noinput` and `collectstatic --noinput` before starting gunicorn.
+- Hardened Docker runtime behavior:
+	- Dockerfile now uses entrypoint.sh and includes a HEALTHCHECK hitting /healthz/.
+	- docker-compose.yml includes a web healthcheck and relies on the image entrypoint for startup.
+- Added a Render deployment blueprint (render.yaml) wiring a web service and managed Postgres (DATABASE_URL).
+- Added a deployment guide: docs/Deploy_University_Portal.md and linked it from README.md.
+
+Validation / regression handling:
+- Initially introduced a syntax error while adding /healthz/ due to incorrect try/except indentation.
+- Fixed the syntax error and re-ran:
+	- Django checks: `python manage.py check` → OK.
+	- Django tests: `python manage.py test` → PASS (14 tests).
+
+Notes / remaining work to obtain a public link:
+- Publishing a real URL requires an external hosting provider (e.g., Render) and repo access.
+- Next steps: push this repository to GitHub, deploy using render.yaml (or follow docs/Deploy_University_Portal.md), and set required environment variables (SECRET_KEY, ALLOWED_HOSTS, CSRF trusted origins, DATABASE_URL).

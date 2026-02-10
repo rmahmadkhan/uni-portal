@@ -1,0 +1,31 @@
+{% extends 'portal/base.html' %}
+{% block title %}Announcements · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">Announcements</div>
+    {% if announcements %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Published</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in announcements %}
+            <tr>
+                <td>
+                    {% if a.is_pinned %}<span class="badge">Pinned</span> {% endif %}
+                    <strong>{{ a.title }}</strong>
+                    <div class="h2">{{ a.body|linebreaksbr }}</div>
+                </td>
+                <td>{{ a.publish_at|date:'Y-m-d H:i' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="h2">No announcements.</p>
+    {% endif %}
+</div>
+{% endblock %}

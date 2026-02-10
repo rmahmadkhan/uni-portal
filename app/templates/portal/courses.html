@@ -1,0 +1,29 @@
+{% extends 'portal/base.html' %}
+{% block title %}Courses · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">Courses {% if active_term %}<span class="badge">{{ active_term.name }}</span>{% endif %}</div>
+    {% if courses %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Title</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in courses %}
+            <tr>
+                <td><strong>{{ c.code }}</strong></td>
+                <td>{{ c.title }}</td>
+                <td><a href="{% url 'portal:course_detail' c.code %}">View</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="h2">No courses configured yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

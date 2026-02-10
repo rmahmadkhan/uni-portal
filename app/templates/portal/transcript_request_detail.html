@@ -1,0 +1,75 @@
+{% extends 'portal/base.html' %}
+{% block title %}Transcript Request · University Portal{% endblock %}
+{% block content %}
+<div class="grid">
+    <div class="col-6">
+        <div class="card">
+            <div class="h1">TR-{{ tr.id }}</div>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Status</th>
+                        <td><span class="badge">{{ tr.get_status_display }}</span></td>
+                    </tr>
+                    <tr>
+                        <th>Purpose</th>
+                        <td>{{ tr.purpose }}</td>
+                    </tr>
+                    <tr>
+                        <th>Delivery</th>
+                        <td>{{ tr.get_delivery_method_display }}</td>
+                    </tr>
+                    <tr>
+                        <th>Recipient</th>
+                        <td>{{ tr.recipient_details|default:'—'|linebreaksbr }}</td>
+                    </tr>
+                    <tr>
+                        <th>Updated</th>
+                        <td>{{ tr.updated_at|date:'Y-m-d H:i' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="actions">
+                <a href="{% url 'portal:transcript_requests' %}">Back</a>
+                {% if tr.status != 'issued' and tr.status != 'rejected' %}
+                <form method="post" action="{% url 'portal:transcript_request_cancel' tr.id %}" style="margin:0">
+                    {% csrf_token %}
+                    <button type="submit">Cancel</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="h1">History</div>
+            {% if events %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>When</th>
+                        <th>By</th>
+                        <th>Change</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for e in events %}
+                    <tr>
+                        <td>{{ e.created_at|date:'Y-m-d H:i' }}</td>
+                        <td>{{ e.actor.get_full_name|default:e.actor.username }}</td>
+                        <td>{{ e.from_status|default:'—' }} → {{ e.to_status }}</td>
+                        <td>{{ e.note|default:'—' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="h2">No events recorded yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

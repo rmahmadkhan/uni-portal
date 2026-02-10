@@ -1,0 +1,21 @@
+{% extends 'portal/base.html' %}
+{% block title %}Registrar Action · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">TR-{{ tr.id }} — {{ tr.requester.get_full_name|default:tr.requester.username }}</div>
+    <p class="h2">Current status: <span class="badge">{{ tr.get_status_display }}</span></p>
+
+    <form method="post">
+        {% csrf_token %}
+        {% if action != 'issue' %}
+        <label>Reason / note {% if action == 'reject' %}*{% endif %}</label>
+        <textarea name="reason" rows="4" placeholder="Optional note (required for reject)"></textarea>
+        {% endif %}
+
+        <div class="actions" style="margin-top:12px">
+            <button type="submit">Confirm {{ action|capfirst }}</button>
+            <a href="{% url 'portal:registrar_queue' %}">Back</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

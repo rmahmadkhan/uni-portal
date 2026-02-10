@@ -1,0 +1,9 @@
+.DS_Store
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+app/db.sqlite3
+app/db_prod_verify.sqlite3
+app/staticfiles/

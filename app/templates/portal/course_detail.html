@@ -1,0 +1,51 @@
+{% extends 'portal/base.html' %}
+{% block title %}{{ course.code }} · Courses · University Portal{% endblock %}
+{% block content %}
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <div class="h1">{{ course.code }} — {{ course.title }}</div>
+            {% if course.description %}<p class="h2">{{ course.description|linebreaksbr }}</p>{% endif %}
+            <div class="actions"><a href="{% url 'portal:courses' %}">Back to courses</a></div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="h1">Sections {% if active_term %}<span class="badge">{{ active_term.name }}</span>{% endif %}
+            </div>
+            {% if sections %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Section</th>
+                        <th>Meetings</th>
+                        <th>Seats</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in sections %}
+                    <tr>
+                        <td>{{ s.section_code }}</td>
+                        <td>{{ s.meeting_days }} {% if s.start_time %}{{ s.start_time }}-{{ s.end_time }}{% endif %}
+                        </td>
+                        <td>{{ s.enrolled_count }}/{{ s.capacity }}</td>
+                        <td>
+                            {% if s.id in enrolled_section_ids %}
+                            <span class="badge good">Enrolled</span>
+                            {% else %}
+                            <span class="badge">—</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="h2">No sections available.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'portal/base.html' %}
+{% block title %}Registrar Queue · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">Registrar Queue</div>
+    {% if items %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Requester</th>
+                <th>Status</th>
+                <th>Created</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tr in items %}
+            <tr>
+                <td>TR-{{ tr.id }}</td>
+                <td>{{ tr.requester.get_full_name|default:tr.requester.username }}</td>
+                <td><span class="badge">{{ tr.get_status_display }}</span></td>
+                <td>{{ tr.created_at|date:'Y-m-d H:i' }}</td>
+                <td class="actions">
+                    <a href="{% url 'portal:registrar_approve' tr.id %}">Approve</a>
+                    <a href="{% url 'portal:registrar_reject' tr.id %}">Reject</a>
+                    <a href="{% url 'portal:registrar_issue' tr.id %}">Issue</a>
+                    {% if tr.status == 'issued' %}
+                    <a href="{% url 'portal:official_transcript_pdf' tr.id %}">PDF</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="h2">Queue is empty.</p>
+    {% endif %}
+</div>
+{% endblock %}

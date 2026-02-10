@@ -1,0 +1,27 @@
+{% extends 'portal/base.html' %}
+{% block title %}Request Transcript · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">Request Official Transcript</div>
+    <form method="post">
+        {% csrf_token %}
+        <label>Purpose *</label>
+        <input name="purpose" placeholder="e.g., scholarship application" />
+
+        <label>Delivery Method *</label>
+        <select name="delivery_method">
+            {% for val,label in delivery_methods %}
+            <option value="{{ val }}">{{ label }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Recipient details</label>
+        <textarea name="recipient_details" rows="4" placeholder="Email / address / instructions"></textarea>
+
+        <div class="actions" style="margin-top:12px">
+            <button type="submit">Submit request</button>
+            <a href="{% url 'portal:transcript_requests' %}">Back</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

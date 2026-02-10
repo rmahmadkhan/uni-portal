@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <defs>
+    <style>
+      .bg{fill:#0b1220;}
+      .panel{fill:#101b33;stroke:#2b3a66;stroke-width:2;}
+      .card{fill:#0f172a;stroke:#334155;stroke-width:2;}
+      .muted{fill:#94a3b8;font-family:Inter,system-ui,Arial;font-size:14px;}
+      .title{fill:#e2e8f0;font-family:Inter,system-ui,Arial;font-size:22px;font-weight:800;}
+      .label{fill:#cbd5e1;font-family:Inter,system-ui,Arial;font-size:14px;}
+      .input{fill:#0b1020;stroke:#475569;stroke-width:2;}
+      .btn{fill:#2563eb;}
+      .btnText{fill:#ffffff;font-family:Inter,system-ui,Arial;font-size:15px;font-weight:700;}
+      .pill{fill:#1f2a44;}
+      .pillText{fill:#cbd5e1;font-family:Inter,system-ui,Arial;font-size:12px;}
+      .line{stroke:#334155;stroke-width:2;}
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1200" height="750"/>
+
+  <rect class="panel" x="20" y="20" width="1160" height="64" rx="14"/>
+  <text class="title" x="44" y="60">Transcripts</text>
+  <text class="muted" x="980" y="60">Student: A. Ahmad</text>
+
+  <rect class="card" x="20" y="100" width="560" height="620" rx="18"/>
+  <text class="title" x="44" y="144">Unofficial Transcript</text>
+  <text class="muted" x="44" y="172">Instant download for personal use</text>
+  <rect class="btn" x="44" y="196" width="230" height="46" rx="12"/>
+  <text class="btnText" x="96" y="226">Download PDF</text>
+
+  <line class="line" x1="44" y1="270" x2="556" y2="270"/>
+  <text class="title" x="44" y="312">Official Transcript</text>
+  <text class="muted" x="44" y="340">Requires request and approval</text>
+
+  <text class="label" x="44" y="380">Purpose</text>
+  <rect class="input" x="44" y="392" width="512" height="44" rx="10"/>
+
+  <text class="label" x="44" y="452">Delivery</text>
+  <rect class="pill" x="44" y="466" width="120" height="34" rx="17"/>
+  <text class="pillText" x="68" y="488">Email</text>
+  <rect class="pill" x="174" y="466" width="150" height="34" rx="17"/>
+  <text class="pillText" x="204" y="488">Pickup</text>
+  <rect class="pill" x="334" y="466" width="180" height="34" rx="17"/>
+  <text class="pillText" x="360" y="488">Courier</text>
+
+  <text class="label" x="44" y="532">Recipient / Address (if applicable)</text>
+  <rect class="input" x="44" y="544" width="512" height="90" rx="10"/>
+
+  <rect class="btn" x="44" y="654" width="512" height="52" rx="14"/>
+  <text class="btnText" x="232" y="687">Submit Request</text>
+
+  <rect class="card" x="600" y="100" width="580" height="620" rx="18"/>
+  <text class="title" x="624" y="144">My Requests</text>
+  <line class="line" x1="624" y1="158" x2="1156" y2="158"/>
+  <text class="muted" x="624" y="190">#TR-1042 • Submitted • 2026-02-03</text>
+  <text class="muted" x="624" y="220">#TR-1038 • Approved • 2026-01-15</text>
+  <text class="muted" x="624" y="250">#TR-1029 • Issued • 2025-12-02</text>
+
+  <rect class="panel" x="624" y="290" width="532" height="120" rx="16"/>
+  <text class="muted" x="646" y="328">Selected Request: #TR-1038</text>
+  <text class="muted" x="646" y="354">Status: Approved</text>
+  <text class="muted" x="646" y="380">Download: Available after issuance</text>
+
+  <text class="muted" x="20" y="742">Wireframe (Desktop) — Transcript Request</text>
+</svg>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <defs>
+    <style>
+      .bg{fill:#0b1220;}
+      .panel{fill:#101b33;stroke:#2b3a66;stroke-width:2;}
+      .card{fill:#0f172a;stroke:#334155;stroke-width:2;}
+      .muted{fill:#94a3b8;font-family:Inter,system-ui,Arial;font-size:16px;}
+      .title{fill:#e2e8f0;font-family:Inter,system-ui,Arial;font-size:28px;font-weight:700;}
+      .label{fill:#cbd5e1;font-family:Inter,system-ui,Arial;font-size:15px;}
+      .input{fill:#0b1020;stroke:#475569;stroke-width:2;}
+      .btn{fill:#2563eb;}
+      .btnText{fill:#ffffff;font-family:Inter,system-ui,Arial;font-size:16px;font-weight:600;}
+      .link{fill:#60a5fa;font-family:Inter,system-ui,Arial;font-size:14px;}
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="1200" height="750"/>
+
+  <!-- Header -->
+  <rect class="panel" x="40" y="30" width="1120" height="70" rx="14"/>
+  <text class="title" x="70" y="75">University Portal</text>
+  <text class="muted" x="1020" y="75">Help • Status</text>
+
+  <!-- Main card -->
+  <rect class="card" x="340" y="170" width="520" height="430" rx="18"/>
+  <text class="title" x="390" y="235">Sign in</text>
+  <text class="muted" x="390" y="265">Use your university account (SSO)</text>
+
+  <text class="label" x="390" y="315">Email / Roll No.</text>
+  <rect class="input" x="390" y="330" width="420" height="46" rx="10"/>
+
+  <text class="label" x="390" y="405">Password</text>
+  <rect class="input" x="390" y="420" width="420" height="46" rx="10"/>
+
+  <rect class="btn" x="390" y="495" width="420" height="52" rx="12"/>
+  <text class="btnText" x="555" y="528">Continue</text>
+
+  <text class="link" x="390" y="575">Forgot password?</text>
+  <text class="muted" x="390" y="610">By continuing, you agree to the Acceptable Use Policy.</text>
+
+  <!-- Footer -->
+  <text class="muted" x="40" y="720">Wireframe (Desktop) — Login</text>
+</svg>

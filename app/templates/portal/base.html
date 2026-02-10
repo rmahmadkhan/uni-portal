@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% block title %}University Portal{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'portal.css' %}">
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="container topbar-inner">
+            <a class="brand" href="{% url 'portal:dashboard' %}">University Portal</a>
+            <nav class="nav">
+                {% if user.is_authenticated %}
+                <a href="{% url 'portal:dashboard' %}">Dashboard</a>
+                <a href="{% url 'portal:courses' %}">Courses</a>
+                <a href="{% url 'portal:announcements' %}">Announcements</a>
+                {% if nav.is_student %}<a href="{% url 'portal:registration' %}">Registration</a>{% endif %}
+                {% if nav.is_student or nav.is_faculty %}<a href="{% url 'portal:timetable' %}">Timetable</a>{% endif %}
+                {% if nav.is_student %}<a href="{% url 'portal:grades' %}">Grades</a>{% endif %}
+                {% if nav.is_student or nav.is_alumni %}<a
+                    href="{% url 'portal:transcript_requests' %}">Transcripts</a>{% endif %}
+                <a href="{% url 'portal:finance' %}">Finance</a>
+                <a href="{% url 'portal:support' %}">Support</a>
+                {% if nav.is_registrar %}<a href="{% url 'portal:registrar_queue' %}">Registrar Queue</a>{% endif %}
+                {% if nav.is_admin %}<a href="{% url 'portal:admin_users_new' %}">User Admin</a>{% endif %}
+                {% if nav.is_admin %}<a href="/admin/">Admin</a>{% endif %}
+                <a href="{% url 'portal:profile' %}">Profile</a>
+                <form class="nav-logout" method="post" action="{% url 'portal:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="link-button">Logout</button>
+                </form>
+                {% else %}
+                <a href="{% url 'portal:login' %}">Login</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <div class="message {{ message.tags|default:'' }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <small>Demo portal (SDLC project). Not for production.</small>
+        </div>
+    </footer>
+</body>
+
+</html>

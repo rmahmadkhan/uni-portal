@@ -1,0 +1,47 @@
+{% extends 'portal/base.html' %}
+{% block title %}Transcripts · University Portal{% endblock %}
+{% block content %}
+<div class="grid">
+    <div class="col-12">
+        <div class="card">
+            <div class="h1">Transcripts</div>
+            <div class="actions">
+                <a href="{% url 'portal:unofficial_transcript_pdf' %}">Download unofficial PDF</a>
+                <a href="{% url 'portal:transcript_request_new' %}">Request official transcript</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="card">
+            <div class="h1">My Official Requests</div>
+            {% if requests %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Status</th>
+                        <th>Purpose</th>
+                        <th>Updated</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tr in requests %}
+                    <tr>
+                        <td>TR-{{ tr.id }}</td>
+                        <td><span class="badge">{{ tr.get_status_display }}</span></td>
+                        <td>{{ tr.purpose }}</td>
+                        <td>{{ tr.updated_at|date:'Y-m-d H:i' }}</td>
+                        <td><a href="{% url 'portal:transcript_request_detail' tr.id %}">Details</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="h2">No requests yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'portal/base.html' %}
+{% block title %}Support · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">Support Tickets</div>
+    <div class="actions"><a href="{% url 'portal:support_new' %}">New ticket</a></div>
+
+    {% if tickets %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Subject</th>
+                <th>Status</th>
+                <th>Updated</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for t in tickets %}
+            <tr>
+                <td><a href="{% url 'portal:support_detail' t.id %}">TKT-{{ t.id }}</a></td>
+                <td>{{ t.category }}</td>
+                <td>{{ t.subject }}</td>
+                <td><span class="badge">{{ t.get_status_display }}</span></td>
+                <td>{{ t.updated_at|date:'Y-m-d H:i' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="h2">No tickets yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'portal/base.html' %}
+{% block title %}Ticket · University Portal{% endblock %}
+{% block content %}
+<div class="grid">
+    <div class="col-6">
+        <div class="card">
+            <div class="h1">TKT-{{ ticket.id }}</div>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Status</th>
+                        <td><span class="badge">{{ ticket.get_status_display }}</span></td>
+                    </tr>
+                    <tr>
+                        <th>Category</th>
+                        <td>{{ ticket.category }}</td>
+                    </tr>
+                    <tr>
+                        <th>Subject</th>
+                        <td>{{ ticket.subject }}</td>
+                    </tr>
+                    <tr>
+                        <th>Created</th>
+                        <td>{{ ticket.created_at|date:'Y-m-d H:i' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Updated</th>
+                        <td>{{ ticket.updated_at|date:'Y-m-d H:i' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="h1" style="margin-top:14px">Description</div>
+            <p class="h2">{{ ticket.description|linebreaksbr }}</p>
+
+            <div class="actions"><a href="{% url 'portal:support' %}">Back</a></div>
+        </div>
+    </div>
+
+    <div class="col-6">
+        <div class="card">
+            <div class="h1">Messages</div>
+            {% if ticket_messages %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>When</th>
+                        <th>By</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for m in ticket_messages %}
+                    <tr>
+                        <td>{{ m.created_at|date:'Y-m-d H:i' }}</td>
+                        <td>{{ m.author.get_full_name|default:m.author.username }}</td>
+                        <td>{{ m.message|linebreaksbr }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="h2">No messages yet.</p>
+            {% endif %}
+
+            <form method="post" style="margin-top:12px">
+                {% csrf_token %}
+                <label>Add message</label>
+                <textarea name="message" rows="4" placeholder="Write a reply"></textarea>
+                <div class="actions" style="margin-top:10px">
+                    <button type="submit">Send</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

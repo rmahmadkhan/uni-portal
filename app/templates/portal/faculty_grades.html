@@ -1,0 +1,45 @@
+{% extends 'portal/base.html' %}
+{% block title %}Gradebook · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">Gradebook</div>
+    <p class="h2">{{ section.course.code }} {{ section.course.title }} ({{ section.section_code }}) — {{
+        section.term.name }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="actions" style="margin: 8px 0 14px 0">
+            <label style="margin:0;display:flex;gap:8px;align-items:center">
+                <input type="checkbox" name="released" style="width:auto" />
+                Release grades to students
+            </label>
+            <button type="submit">Save</button>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Student</th>
+                    <th>Grade</th>
+                    <th>Released</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for r in rows %}
+                <tr>
+                    <td>{{ r.student.get_full_name|default:r.student.username }}</td>
+                    <td><input name="grade_{{ r.student.id }}" value="{{ r.grade }}" placeholder="A, B+, ..." /></td>
+                    <td>
+                        {% if r.released %}
+                        <span class="badge good">Yes</span>
+                        {% else %}
+                        <span class="badge">No</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </form>
+</div>
+{% endblock %}

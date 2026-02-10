@@ -1,0 +1,40 @@
+{% extends 'portal/base.html' %}
+{% block title %}Finance (Staff) · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">Finance (Staff)</div>
+    <form method="get" class="actions" style="margin: 10px 0 14px 0">
+        <input name="student_id" placeholder="Filter by student id" style="max-width:260px" />
+        <button type="submit">Filter</button>
+    </form>
+
+    {% if invoices %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ref</th>
+                <th>Student</th>
+                <th>Term</th>
+                <th>Amount</th>
+                <th>Due</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for inv in invoices %}
+            <tr>
+                <td>{{ inv.reference_no }}</td>
+                <td>{{ inv.student.username }}</td>
+                <td>{{ inv.term.name }}</td>
+                <td>{{ inv.amount }}</td>
+                <td>{{ inv.due_date|date:'Y-m-d' }}</td>
+                <td><span class="badge">{{ inv.get_status_display }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="h2">No invoices found.</p>
+    {% endif %}
+</div>
+{% endblock %}

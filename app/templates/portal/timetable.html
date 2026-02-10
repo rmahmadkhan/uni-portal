@@ -1,0 +1,35 @@
+{% extends 'portal/base.html' %}
+{% block title %}Timetable · University Portal{% endblock %}
+{% block content %}
+<div class="card">
+    <div class="h1">Timetable {% if active_term %}<span class="badge">{{ active_term.name }}</span>{% endif %}</div>
+    {% if sections %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course</th>
+                <th>Meetings</th>
+                <th>Location</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in sections %}
+            <tr>
+                <td>{{ s.course.code }} {{ s.course.title }} ({{ s.section_code }})</td>
+                <td>{{ s.meeting_days }} {% if s.start_time %}{{ s.start_time }}-{{ s.end_time }}{% endif %}</td>
+                <td>{{ s.location }}</td>
+                <td>
+                    {% if nav.is_faculty %}
+                    <a href="{% url 'portal:faculty_grades' s.id %}">Gradebook</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="h2">No sections to display.</p>
+    {% endif %}
+</div>
+{% endblock %}
